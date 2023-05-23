@@ -1,0 +1,49 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.video {
+    position: relative;
+    max-height: 70rem; // Reducir el tamaño del video 
+    min-height: 50rem;
+    overflow: hidden; // Con esta linea se oculta la parte faltante
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,0.3) 0%, rgba(9,9,121,0.3) 49%, rgba(0,212,255,0.3) 100%);
+        display: flex; // Se cambia el display de block a flex para poder alinear verticalmente (columnas), en block es para alinear horizontalmente (filas)
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    video{
+        width: auto;
+        display: block;
+        @include m.desktop {
+            width: 100%;
+        }
+    }
+}
+
+.contenido-video {
+    z-index: 10; // Superpone el texto encima de la etiqueta de video 
+    
+    h2{
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0; //  Todos los headings tienen margen hacia abajo, poniendola en 0 se quita
+    }
+
+    p {
+        background-color: v.$rosa;
+        display: inline-block; // Si hay más elemntos debajo no se coloquen del lado derecho tomando solo el espacio que requiere 
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-weight: 700;
+        font-size: 2.4rem;
+        margin: 0;
+    }
+}
+

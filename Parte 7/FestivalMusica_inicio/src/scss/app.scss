@@ -1,0 +1,12 @@
+// La vieja forma de incluir codigo de otros archivos dentro del principal:
+// @import 'base/variables';
+// @import 'contenido/contenido';
+
+// Forma nueva de lo mismo:
+@use 'base';
+@use 'contenido';
+@use 'layout';
+
+
+
+
